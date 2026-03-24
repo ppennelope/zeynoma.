@@ -102,6 +102,37 @@ button:hover{
 #png2 { top:20%; right:10%; }
 #png3 { bottom:15%; left:40%; }
 
+/* İkinci sayfadaki görseller */
+.photo-row{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:16px;
+  margin-top:20px;
+  flex-wrap:nowrap;
+}
+.side-photo{
+  width:34%;
+  max-width:120px;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  border-radius:16px;
+  border:2px solid rgba(255,255,255,0.35);
+  box-shadow:0 0 20px rgba(255,105,180,0.25);
+}
+.long-text{
+  font-size:4.2vw;
+  line-height:1.6;
+  word-wrap:break-word;
+  overflow-wrap:break-word;
+}
+
+.continue-btn{
+  background:white;
+  color:black;
+  margin-top:24px;
+}
+
 /* Son ekrandaki animasyonlu png1 */
 #finalPng{
   width:15vw;
@@ -135,7 +166,7 @@ button:hover{
   padding:20px;
 }
 #finalScreen .textBlock{
-  background: rgba(0,0,0,0.5); /* yarı saydam siyah */
+  background: rgba(0,0,0,0.5);
   padding: 10px 15px;
   border-radius:10px;
   display:inline-block;
@@ -148,6 +179,11 @@ button:hover{
   .small-note { font-size:4vw; } 
   .my-image { width:12vw; } 
   #finalPng { width:25vw; }
+  .long-text { font-size:4.6vw; }
+  .side-photo{
+    width:36%;
+    max-width:130px;
+  }
 }
 </style>
 </head>
@@ -160,7 +196,7 @@ button:hover{
 <img src="png3.png" id="png3" class="my-image">
 
 <div class="container" id="mainContainer">
-  <h1>Seni bu boktan şeylere maruz bıraktığım için özür dilerim.</h1>
+  <h1>Sana bu boktan şeyleri yaşattığım için özür dilerim</h1>
   <div id="firstButtons">
     <button onclick="firstChoice(true)">Affettim</button>
     <button onclick="firstChoice(false)">Bir daha yapma salak</button>
@@ -213,12 +249,24 @@ function firstChoice(isAffettim){
   const msg=document.getElementById("thankYou");
   msg.style.display="block";
   msg.classList.add("glow");
+
   if(isAffettim){
     msg.innerHTML="💖🐱🎀 affettigin için ck tsk ederm SANA BAYILIYORUM KADINIM 🎀🐱💖";
   }else{
     msg.innerHTML="💖🎀🐱 karşıma çıkan en güzel şey olduğun için teşekkür ederim 🐱🎀💖";
   }
-  setTimeout(showSecondScreen,5000);
+
+  setTimeout(showPraiseScreen,5000);
+}
+
+function showPraiseScreen(){
+  document.getElementById("mainContainer").innerHTML=
+    "<h1 class='long-text'>Sen gördüğüm en güzel, en tatlı, en hoş, en zarif, en etkileyici, en büyüleyici, en naif, en özel, en kıymetli, en iç ısıtan, en samimi, en masum, en sevilesi, en değerli, en anlamlı, en huzur veren, en göz kamaştıran, en hayran bırakan, en ince ruhlu, en temiz kalpli, en merhametli, en anlayışlı, en sabırlı, en düşünceli, en şefkatli, en yumuşak kalpli, en narin, en tatlı gülüşe sahip, en güzel bakan gözlere sahip, en güzel kalbe sahip, en güzel sesi taşıyan, en güzel varlığıyla insanın içini aydınlatan, en asil duruşlu, en hoş bakışlı, en etkileyici tebessümlü, en içten konuşan, en sıcak hissettiren, en güven veren, en dürüst, en gerçek, en doğal, en sade haliyle bile en dikkat çeken, en ufak detayında bile insanı kendine hayran bırakan, en tatlı gülümseme gibi olan, en anlamlı bakışa sahip, en huzurlu his gibi gelen, en temiz niyetli, en saf sevgiyi hissettiren, en içten davranan, en ince düşünen, en zarif tavırlı, en tatlı utangaçlığa sahip, en güzel heyecanı yaşatan, en sevimli hâlleri olan, en tatlı kıskançlığı bile güzel duran, en romantik ruhlu, en samimi yakınlığı hissettiren, en güvenli liman gibi olan, en mutlu eden tesadüf, en güzel alışkanlık, en kıymetli his, en özel bağ, en unutulmaz detay, en güzel hikâye, en güçlü ama aynı zamanda en narin, en neşeli ama gerektiğinde en olgun, en eğlenceli ama bir o kadar da en derin, en tatlı ama aynı zamanda en etkileyici, en sakin ama en çok iz bırakan, en sade ama en çok dikkat çeken, en güzel yüzlü, en güzel bakışlı, en güzel gülüşlü, en güzel enerjili, en güzel ruhlu, en güzel niyetli, en güzel konuşan, en güzel tavırlı, en güzel hissettiren, en güzel teselli olan, en güzel destek olan, en güzel huzur veren, en güzel mutluluk gibi gelen, en güzel heyecanı yaşatan, en güzel özlem olan, en güzel sevda gibi içe işleyen, en güzel iyi ki, en güzel rastlantı, en güzel mucize, en tatlı tesadüf, en güzel hediye, en anlamlı karşılaşma, en kıymetli insan, en benzersiz ruh, en ince kalp, en parlak yıldız, en güzel dua, en zarif mutluluk, en sakin liman, en güçlü huzur, en tatlı bağımlılık, en güzel özlem, en yumuşak dokunuş, en içten sevgi, en derin his, en unutulmaz iz, en güzel hayal, en gerçek masal gibisin; ne kadar anlatsam da eksik kalacakmış gibi, çünkü seni anlatmaya kelimeler yetmiyor, güzel demek yetmiyor, tatlı demek yetmiyor, özel demek yetmiyor, çünkü sen bunların hepsinden daha fazlasısın, bir insanda olabilecek en güzel ayrıntıların, en iyi huyların, en değerli hislerin, en saf duyguların birleşmiş hâli gibisin, sen gördüğüm en güzel, en tatlı, en hoş, en zarif, en özel, en anlamlı, en sevilesi, en kıymetli, en unutulmaz insansın.</h1>"+
+    "<div class='photo-row'>"+
+      "<img src='png4.png' class='side-photo'>"+
+      "<img src='png5.png' class='side-photo'>"+
+    "</div>"+
+    "<button class='continue-btn' onclick='showSecondScreen()'>Devam et</button>";
 }
 
 function showSecondScreen(){
